@@ -1,4 +1,4 @@
-FROM bellkev/uwsgi-base:stable
+FROM 012881927014.dkr.ecr.ap-southeast-1.amazonaws.com/docker:stable
 
 ADD . /opt/hello
 
