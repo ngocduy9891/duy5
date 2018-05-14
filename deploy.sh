@@ -9,8 +9,9 @@ JQ="jq --raw-output --exit-status"
 
 deploy_image() {
 
-    docker login -u $DOCKER_USERNAME -p $DOCKER_PASS -e $DOCKER_EMAIL
-    docker push bellkev/circle-ecs:$CIRCLE_SHA1 | cat # workaround progress weirdness
+    login="$(aws ecr get-login --region ap-southeast-1)"
+    ${login}
+    docker push 012881927014.dkr.ecr.ap-southeast-1.amazonaws.com/docker:$CIRCLE_SHA1 | cat
 
 }
 
